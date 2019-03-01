@@ -16,18 +16,22 @@ class Board extends Component {
         let tiles = [];
         let rowData = this.props.boardData[r];
         for(var c = 0 ; c < rowData.length; c++){
-            tiles.push(<Tile className='board-tile' xPos={c} yPos={r} token={rowData[c]} />);
+            let key = c + '' + r + '' + rowData[c];
+            tiles.push(<Tile className='board-tile' xPos={c} yPos={r} token={rowData[c]} key={key} clickHandle={this.props.clickHandle}/>);
         }
-        rows.push(<div class='board-row'>{tiles}</div>);
+        rows.push(<div key={r} className='board-row'>{tiles}</div>);
     }
 
 
 
 
     return (
-      <div class='board-grid'>
-          {rows}
-      </div>
+        <React.Fragment>
+            <div>{this.props.yourTurn ? "It's your turn" : ""}</div>
+            <div className='board-grid'>
+                {rows}
+            </div>
+        </React.Fragment>
     );
   }
 }
