@@ -28,6 +28,7 @@ class Board extends Component {
     return (
         <React.Fragment>
             <div>{this.props.yourTurn ? "It's your turn" : ""}</div>
+            <div>{this.props.spectating ? "You are spectating" : ""}</div>
             <div className='board-grid'>
                 {rows}
             </div>

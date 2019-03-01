@@ -63,7 +63,7 @@ class App extends Component {
 
     return (
       <div className="App">
-        <Board yourTurn={this.state.yourTurn} boardData={this.state.gameData.board} clickHandle={this.tileClick}/>
+        <Board yourTurn={this.state.yourTurn} boardData={this.state.gameData.board} clickHandle={this.tileClick} spectating={this.state.yourToken === null ? true: false}/>
       </div>
     );
   }
