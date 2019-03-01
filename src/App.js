@@ -23,6 +23,12 @@ class App extends Component {
 
       this.updateGameState();
     });
+
+    socket.on('disconnect', () => {
+      this.setState({
+        gameData: null
+      });
+    });
   }
 
   updateGameState(){
